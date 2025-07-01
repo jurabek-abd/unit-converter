@@ -54,7 +54,7 @@ http://127.0.0.1:5000
 
 ## 🖼️ Screenshots
 
-<img src="screenshots/length.png" width="400"/> <img src="screenshots/temperature.png" width="400"/>
+<img src="screenshots/length.png" width="49%"/> <img src="screenshots/temperature.png" width="49%"/>
 
 ---
 
