@@ -107,7 +107,7 @@ def length():
 ## 👤 Author
 
 **Jurabek**  
-High school student and aspiring AI Integration Specialist.  
+High school student and aspiring AI Chatbot Specialist.  
 Passionate about building Python web apps from scratch and mastering backend development with Flask and FastAPI.
 
 ---
