@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('length') }}">Length</a>
+        <a href="{{ url_for('weight') }}">Weight</a>
+        <a href="{{ url_for('temperature') }}" class="{% if active == 'temperature' %}active{% endif %}">Temperature</a>
+    </nav>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="value">Value:</label>
+                <input type="number" name="value" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="from_unit">From:</label>
+                <select name="from_unit">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="to_unit">To:</label>
+                <select name="to_unit">
+                    <option value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                    <option value="Kelvin">Kelvin</option>
+                </select>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if result is not none %}
+            <h2>Converted Temperature: {{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

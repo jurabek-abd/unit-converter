@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('length') }}">Length</a>
+        <a href="{{ url_for('weight') }}" class="{% if active == 'weight' %}active{% endif %}">Weight</a>
+        <a href="{{ url_for('temperature') }}">Temperature</a>
+    </nav>
+
+    <div class="container">
+        <h1>Weight Converter</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="value">Value:</label>
+                <input type="number" name="value" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="from_unit">From:</label>
+                <select name="from_unit">
+                    <option value="milligram">Milligram</option>
+                    <option value="gram">Gram</option>
+                    <option value="kilogram">Kilogram</option>
+                    <option value="ounce">Ounce</option>
+                    <option value="pound">Pound</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="to_unit">To:</label>
+                <select name="to_unit">
+                    <option value="milligram">Milligram</option>
+                    <option value="gram">Gram</option>
+                    <option value="kilogram">Kilogram</option>
+                    <option value="ounce">Ounce</option>
+                    <option value="pound">Pound</option>
+                </select>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if result is not none %}
+            <h2>Converted Value: {{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
